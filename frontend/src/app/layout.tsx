@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'System Design Lab Team' }],
   creator: 'System Design Lab Team',
-  metadataBase: new URL('https://systemdesignlab.dev'),
+  metadataBase: new URL('https://system-des-lab.online'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://systemdesignlab.dev',
+    url: 'https://system-des-lab.online',
     title: 'System Design Lab — Practical System Design & Backend Engineering Hub',
     description:
       'Learn production-grade system design concepts, explore 24-step flagship case studies, and calculate capacity math with interactive tools.',
@@ -55,8 +55,8 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'System Design Lab',
-    url: 'https://systemdesignlab.dev',
-    logo: 'https://systemdesignlab.dev/logo.png',
+    url: 'https://system-des-lab.online',
+    logo: 'https://system-des-lab.online/logo.png',
     sameAs: ['https://github.com/deepanshu954/SystemDesignLab'],
   };
 

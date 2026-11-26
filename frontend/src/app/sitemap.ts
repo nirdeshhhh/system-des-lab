@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { api } from '@/lib/api';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://systemdesignlab.dev';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://system-des-lab.online';
 
   const caseStudies = await api.getCaseStudies();
   const concepts = await api.getConcepts();

@@ -17,13 +17,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://systemdesignlab.dev',
+      item: 'https://system-des-lab.online',
     },
     ...items.map((item, idx) => ({
       '@type': 'ListItem',
       position: idx + 2,
       name: item.label,
-      item: item.href ? `https://systemdesignlab.dev${item.href}` : undefined,
+      item: item.href ? `https://system-des-lab.online${item.href}` : undefined,
     })),
   ];
 
