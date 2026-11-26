@@ -4,6 +4,21 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['localhost'],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 2592000,
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*\\.(svg|ico|webp|avif|png|jpg|jpeg|woff2)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+    ];
   },
   async rewrites() {
     const backendUrl = process.env.INTERNAL_BACKEND_URL || 'http://127.0.0.1:8080';
