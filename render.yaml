@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: system-design-lab
+    runtime: docker
+    dockerfilePath: ./Dockerfile.seo
+    plan: free
+    region: oregon
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: system-design-lab-db
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://system-des-lab.online,https://www.system-des-lab.online
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://system-des-lab.online
+
+databases:
+  - name: system-design-lab-db
+    plan: free
+    databaseName: system_design_lab
+    user: system_design_lab
+
