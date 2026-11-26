@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -59,10 +60,21 @@ export default function RootLayout({
     logo: 'https://system-des-lab.online/logo.png',
     sameAs: ['https://github.com/deepanshu954/SystemDesignLab'],
   };
+  const measurementId = 'G-WJQN60W6E3';
 
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className="bg-background text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${measurementId}');`}
+        </Script>
         <JsonLd data={organizationSchema} />
         <div className="flex min-h-screen flex-col">
           <Header />
