@@ -73,7 +73,14 @@ export default function RootLayout({
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${measurementId}');`}
+gtag('config', '${measurementId}');
+document.addEventListener('click', function(event) {
+  var target = event.target;
+  var link = target && target.closest && target.closest('a[href="/tools/capacity-calculator"]');
+  if (link) {
+    gtag('event', 'calculator_open', { link_url: link.href });
+  }
+});`}
         </Script>
         <JsonLd data={organizationSchema} />
         <div className="flex min-h-screen flex-col">
